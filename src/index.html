@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="Webpixels" />
+    <title>Kustai</title>
+    <!-- Preloader -->
+    <style>
+        @keyframes hidePreloader {
+            0% {
+                width: 100%;
+                height: 100%;
+            }
+
+            100% {
+                width: 0;
+                height: 0;
+            }
+        }
+
+        body>div.preloader {
+            position: fixed;
+            background: white;
+            width: 100%;
+            height: 100%;
+            z-index: 1071;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            overflow: hidden;
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        body:not(.loaded)>div.preloader {
+            opacity: 1;
+        }
+
+        body:not(.loaded) {
+            overflow: hidden;
+        }
+
+        body.loaded>div.preloader {
+            animation: hidePreloader 0.5s linear 0.5s forwards;
+        }
+    </style>
+    <script>
+        window.addEventListener("load", function() {
+            setTimeout(function() {
+                document.querySelector("body").classList.add("loaded");
+            }, 300);
+        });
+    </script>
+    <!-- Core JS  -->
+    <script src="assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/libs/svg-injector/dist/svg-injector.min.js"></script>
+    <script src="assets/libs/feather-icons/dist/feather.min.js"></script>
+    <!-- Quick JS -->
+    <script src="assets/js/quick-website.js"></script>
+    <!-- Favicon -->
+    <link rel="icon" href="assets/img/brand/favicon.png" type="image/png" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="assets/libs/@fortawesome/fontawesome-free/css/all.min.css" />
+    <!-- Quick CSS -->
+    <link rel="stylesheet" href="assets/css/quick-website.css" id="stylesheet" />
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <div class="container">
+            <!-- Brand -->
+            <a class="navbar-brand" href="index.html">
+                <img alt="Image placeholder" src="assets/img/brand/favicon.png" id="navbar-logo" />
+            </a>
+            <!-- Toggler -->
+            <button class="navbar-toggler" type="button" 
+                data-toggle="collapse" data-target="#navbarCollapse" 
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- Collapse -->
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mt-4 mt-lg-0 ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">首页</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sec:CompanyProfile">公司简介</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sec:News">新闻资讯</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sec:SolvePlan">解决方案</a>
+                    </li>
+
+                    <li class="nav-item dropdown dropdown-animate" data-toggle="hover">
+                        <a class="nav-link" href="#sec:TechServices" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-box">
+                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+                                <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                                <line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                            技术服务
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-single">
+                            <a href="#sec:TechServices" class="dropdown-item">物联网技术服务</a>
+                            <a href="#sec:TechServices" class="dropdown-item">物联网应用服务</a>
+                            <a href="#sec:TechServices" class="dropdown-item">人工智能基础资源与技术平台</a>
+                            <a href="#sec:TechServices" class="dropdown-item">人工智能应用软件开发</a>
+                            <a href="#sec:TechServices" class="dropdown-item">计算机软硬件及辅助设备零售</a>
+                            <a href="#sec:TechServices" class="dropdown-item">计算机系统服务</a>
+                            <a href="#sec:TechServices" class="dropdown-item">计算器设备销售</a>
+                            <a href="#sec:TechServices" class="dropdown-item">电子元器件与机电组件设备销售</a>
+                            <a href="#sec:TechServices" class="dropdown-item">5G通信技术服务</a>
+                            <a href="#sec:TechServices" class="dropdown-item">智能农业</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown dropdown-animate" data-toggle="hover">
+                        <a class="nav-link" href="#sec:TechServices" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-list">
+                                <line x1="8" y1="6" x2="21" y2="6"></line>
+                                <line x1="8" y1="12" x2="21" y2="12"></line>
+                                <line x1="8" y1="18" x2="21" y2="18"></line>
+                                <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                                <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                                <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                            </svg>
+                            产品目录
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-single">
+                            <a href="#" class="dropdown-item">RISC-V</a>
+                            <a href="#" class="dropdown-item">物联网通信模块</a>
+                            <a href="#" class="dropdown-item">传感器</a>
+                            <a href="#" class="dropdown-item">人工智能</a>
+                            <a href="#" class="dropdown-item">机器人</a>
+                            <a href="#" class="dropdown-item">MCU/ARM</a>
+                            <a href="#" class="dropdown-item">FPGA</a>
+                            <a href="#" class="dropdown-item">显示器</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown dropdown-animate" data-toggle="hover">
+                        <a class="nav-link" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart">
+                                <circle cx="9" cy="21" r="1"></circle>
+                                <circle cx="20" cy="21" r="1"></circle>
+                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                            </svg>
+                            在线商城
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-single">
+                            <a href="https://www.taobao.com/" class="dropdown-item">
+                                <img alt="Image placeholder" src="assets/img/clients/svg/china-jingdong.svg" width="15" height="15">
+                                京东店铺
+                            </a>
+                            <a href="https://www.jd.com/" class="dropdown-item">
+                                <img alt="Image placeholder" src="assets/img/clients/svg/china-taobo.svg" width="15" height="15">
+                                淘宝店铺
+                            </a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-phone-call">
+                                <path d="M15.05 5A5 5 0 0 1 19 8.95M15.05 1A9 9 0 0 1 23 8.94m-1 7.98v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>
+                            联系我们
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- Mobile button -->
+                <!-- <div class="d-lg-none text-center">
+                    <a href="https://webpixels.io/themes/quick-website-ui-kit" class="btn btn-block btn-sm btn-warning">查看更多详情</a>
+                </div> -->
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Main content -->
+    <section class="slice py-7">
+        <div class="container">
+            <div class="row row-grid align-items-center">
+                <div class="col-12 col-md-5 col-lg-6 order-md-2 text-center">
+                    <!-- Image -->
+                    <figure class="w-100">
+                        <img alt="Image placeholder" src="assets/img/svg/illustrations/illustration-3.jpg" class="img-fluid mw-md-120" />
+                    </figure>
+                </div>
+                <div class="col-12 col-md-7 col-lg-6 order-md-1 pr-md-5">
+                    <!-- Heading -->
+                    <h1 class="display-4 text-center text-md-left mb-3">
+                        创新驱动，智联万物。<strong class="text-primary">库斯泰科技</strong>引领物联网新时代
+                    </h1>
+                    <!-- Text -->
+                    <p class="lead text-center text-md-left text-muted">
+                        智联5G新时代，物联网的智能变革，驱动AI技术全面融入生活，致力于提供从芯片到云端的一站式智能解决方案。
+                    </p>
+                    <!-- Buttons -->
+                    <div class="text-center text-md-left mt-5">
+                        <a href="#sec:CompanyProfile" class="btn btn-primary btn-icon">
+                            <span class="btn-inner--text">了解更多</span>
+                            <span class="btn-inner--icon"><i data-feather="chevron-right"></i></span>
+                        </a>
+                        <a href="#sec:TechServices" class="btn btn-neutral btn-icon d-none d-lg-inline-block">技术服务</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="slice slice-lg pt-lg-6 pb-0 pb-lg-6 bg-section-secondary" id="sec:SolvePlan">
+        <div class="container">
+            <!-- Title -->
+            <!-- Section title -->
+            <div class="row mb-5 justify-content-center text-center">
+                <div class="col-lg-6">
+                    <h2 class="mt-4">解决方案</h2>
+                    <div class="mt-2">
+                        <p class="lead lh-180">
+                            公司致力于通过创新技术和优质服务，推动传统行业的智能化转型与升级，为客户提供从硬件到软件的一站式解决方案。
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- Card -->
+            <div class="row mt-5">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body pb-5">
+                            <div class="pt-4 pb-5">
+                                <img src="assets/img/svg/illustrations/illustration-7.jpg" class="img-fluid img-center" style="height: 150px" alt="Illustration" />
+                            </div>
+                            <h5 class="h4 lh-130 mb-3">物联网(IoT)解决方案</h5>
+                            <!-- <p class="text-muted mb-0">Quick Website UI Kit (FREE) contains components and pages that are easy to customize and change.</p> -->
+                            <ul class="list-unstyled mb-0">
+                                <li class="py-2">
+                                    <div class="d-flex align-items-center">
+                                        <div>
+                                            <div class="icon icon-shape bg-primary text-white icon-sm rounded-circle mr-3">
+                                                <i class="fas fa-file-invoice"></i>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <span class="h6 mb-0">物联网平台服务</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <p class="text-muted mb-0">
+                                    支持多种协议(MQTT, Zigbee, NB-IoT,
+                                    WebSocket)接入，实现设备互联互通。
+                                </p>
+                                <li class="py-2">
+                                    <div class="d-flex align-items-center">
+                                        <div>
+                                            <div class="icon icon-shape bg-primary text-white icon-sm rounded-circle mr-3">
+                                                <i class="fas fa-store-alt"></i>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <span class="h6 mb-0">行业专用IoT套件</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <p class="text-muted mb-0">
+                                    针对特定行业的硬件和软件集成方案，如智慧交通、智能家居等。
+                                </p>
+                                <li class="py-2">
+                                    <div class="d-flex align-items-center">
+                                        <div>
+                                            <div class="icon icon-shape bg-primary text-white icon-sm rounded-circle mr-3">
+                                                <i class="fas fa-store-alt"></i>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <span class="h6 mb-0">物联网安全服务</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <p class="text-muted mb-0">
+                                    保障物联网场景下用户隐私数据传输的安全性和隐私保护。
+                                </p>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body pb-5">
+                            <div class="pt-4 pb-5">
+                                <img src="assets/img/svg/illustrations/illustration-6.jpg" class="img-fluid img-center" style="height: 150px" alt="Illustration" />
+                            </div>
+                            <h5 class="h4 lh-130 mb-3">5G通信技术服务</h5>
+                            <!-- <p class="text-muted mb-0">Quick Website UI Kit (FREE) contains components and pages that are easy to customize and change.</p> -->
+                            <ul class="list-unstyled mb-0">
+                                <li class="py-2">
+                                    <div class="d-flex align-items-center">
+                                        <div>
+                                            <div class="icon icon-shape bg-primary text-white icon-sm rounded-circle mr-3">
+                                                <i class="fas fa-file-invoice"></i>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <span class="h6 mb-0">5G网络部署与优化</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <p class="text-muted mb-0">
+                                    为企业提供定制化的5G网络建设及优化服务。
+                                </p>
+                                <li class="py-2">
+                                    <div class="d-flex align-items-center">
+                                        <div>
+                                            <div class="icon icon-shape bg-primary text-white icon-sm rounded-circle mr-3">
+                                                <i class="fas fa-store-alt"></i>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <span class="h6 mb-0">5G边缘计算节点</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <p class="text-muted mb-0">
+                                    低延迟、高性能的数据处理能力，支持实时应用。
+                                </p>
+                                <li class="py-2">
+                                    <div class="d-flex align-items-center">
+                                        <div>
+                                            <div class="icon icon-shape bg-primary text-white icon-sm rounded-circle mr-3">
+                                                <i class="fas fa-store-alt"></i>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <span class="h6 mb-0">5G智能终端设备</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <p class="text-muted mb-0">
+                                    适用于不同场景的5G连接设备，如工业路由器、CPE等。
+                                </p>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body pb-5">
+                            <div class="pt-4 pb-5">
+                                <img src="assets/img/svg/illustrations/illustration-5.jpg" class="img-fluid img-center" style="height: 150px" alt="Illustration" />
+                            </div>
+                            <h5 class="h4 lh-130 mb-3">智能农业解决方案</h5>
+                            <!-- <p class="text-muted mb-0">Quick Website UI Kit (FREE) contains components and pages that are easy to customize and change.</p> -->
+                            <ul class="list-unstyled mb-0">
+                                <li class="py-2">
+                                    <div class="d-flex align-items-center">
+                                        <div>
+                                            <div class="icon icon-shape bg-primary text-white icon-sm rounded-circle mr-3">
+                                                <i class="fas fa-file-invoice"></i>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <span class="h6 mb-0">精准农业系统</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <p class="text-muted mb-0">
+                                    基于物联网和大数据分析，提供作物生长监控、土壤湿度检测等服务。
+                                </p>
+                                <li class="py-2">
+                                    <div class="d-flex align-items-center">
+                                        <div>
+                                            <div class="icon icon-shape bg-primary text-white icon-sm rounded-circle mr-3">
+                                                <i class="fas fa-store-alt"></i>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <span class="h6 mb-0">智能灌溉系统</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <p class="text-muted mb-0">
+                                    自动化的灌溉管理方案，节约水资源并提高作物产量。
+                                </p>
+                                <li class="py-2">
+                                    <div class="d-flex align-items-center">
+                                        <div>
+                                            <div class="icon icon-shape bg-primary text-white icon-sm rounded-circle mr-3">
+                                                <i class="fas fa-store-alt"></i>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <span class="h6 mb-0">农产品追溯平台</span>
+                                        </div>
+                                    </div>
+                                </li>
+                                <p class="text-muted mb-0">
+                                    通过区块链技术确保食品供应链的透明度和安全性。
+                                </p>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="slice slice-lg" id="sec:CompanyProfile">
+        <div class="container">
+            <!-- Title -->
+            <!-- Section title -->
+            <!-- <div class="row mb-5 justify-content-center text-center">
+                <div class="col-lg-6">
+                    <h2 class=" mt-4">公司简介</h2>
+                </div>
+            </div> -->
+
+            <div class="py-6">
+                <div class="row row-grid justify-content-between align-items-center">
+                    <div class="col-lg-5 order-lg-2">
+                        <h5 class="h3">公司简介</h5>
+                        <p class="lead my-4">
+                            江苏库斯泰科技有限公司是一家位于中国江苏省的高科技企业，专注于物联网（IoT）应用服务、5G通信技术服务以及人工智能大模型等前沿技术领域。公司致力于通过创新技术和优质服务，推动传统行业的智能化转型与升级，为客户提供从硬件到软件的一站式解决方案。
+                        </p>
+                        <p class="lead my-4">
+                            我们提供广泛的智能农业管理系统，利用先进的传感器和数据分析技术优化农业生产流程，提高效率并减少资源浪费。在5G通信技术服务方面，库斯泰科技积极投身于新一代通信技术的研发与应用，为企业和个人用户提供快速稳定、低延迟的网络连接体验。
+                        </p>
+                    </div>
+                    <div class="col-lg-6 order-lg-1">
+                        <div class="card mb-0 mr-lg-5">
+                            <div class="card-body p-2">
+                                <img alt="Image placeholder" src="assets/img/theme/light/screen-1-1000x800.png" class="img-fluid shadow rounded" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="py-6">
+                <div class="row row-grid justify-content-between align-items-center">
+                    <div class="col-lg-5">
+                        <!-- <h5 class="h3">A modern project management dashboard</h5> -->
+                        <p class="lead my-4">
+                            此外，作为物联网技术服务的先驱者，江苏库斯泰科技不仅开发了适用于多种场景的物联网应用服务，还涉足计算机软硬件及辅助设备零售、电子元器件与机电组件设备销售等领域，确保客户能够获得最新的科技成果支持其业务发展。
+                        </p>
+                        <p class="lead my-4">
+                            公司的人工智能基础资源与技术平台为各行各业提供了强大的AI能力支撑，而自主研发的人工智能应用软件则进一步拓展了人工智能在实际场景中的应用范围。江苏库斯泰科技始终秉持着创新驱动发展的理念，不断探索新技术的应用边界，力求成为行业内的领导者，并为客户创造更大的价值。
+                        </p>
+                        <!-- <p class="lead my-4">
+                            江苏库斯泰科技有限公司凭借其全面的技术实力和服务体系，在智能农业、5G通信、物联网及人工智能等多个关键技术领域内发挥着重要作用，是您值得信赖的技术合作伙伴。
+                        </p> -->
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="card mb-0 ml-lg-5">
+                            <div class="card-body p-2">
+                                <img alt="Image placeholder" src="assets/img/theme/light/screen-2-1000x800.png" class="img-fluid shadow rounded" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="slice slice-lg bg-section-secondary" id="sec:News">
+        <div class="container text-center">
+            <div class="row justify-content-center mb-6">
+                <div class="col-lg-8">
+                    <!-- Title -->
+                    <h2 class="h1 strong-600">库斯泰科技新闻动态</h2>
+                    <!-- Text -->
+                    <!-- <p class="text-muted">
+                        Thousands of developers around the world have already made Quick the main tool for building websites.
+                    </p> -->
+                </div>
+            </div>
+            <!-- Pricing -->
+            <div class="row justify-content-center">
+                <div class="col-lg-4 col-md">
+                    <div class="card card-pricing text-center px-3 hover-scale-110">
+                        <div class="card-header py-5 border-0 delimiter-bottom">
+                            <div class="h1 text-center mb-0">企业新闻</div>
+                            <!-- <span class="h6 text-muted">Standard License</span> -->
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled text-white text-sm opacity-8 mb-4">
+                                <li class="py-2">
+                                    <a href="#" class="text-primary text-underline--dashed">库斯泰科技发布智能农业管理平台V3.0，引领行业创新<i data-feather="arrow-right" class="ml-2"></i></a>
+                                </li>
+                                <li class="py-2">
+                                    <a href="#" class="text-primary text-underline--dashed">库斯泰科技携手本草科技为完成首个5G智慧工厂试点项目<i data-feather="arrow-right" class="ml-2"></i></a>
+                                </li>
+                                <li class="py-2">
+                                    <a href="#" class="text-primary text-underline--dashed">库斯泰科技出席国际物联网大会<i data-feather="arrow-right" class="ml-2"></i></a>
+                                </li>
+                                <li class="py-2">
+                                    <a href="#" class="text-primary text-underline--dashed">库斯泰科技启动“绿色乡村”公益计划<i data-feather="arrow-right" class="ml-2"></i></a>
+                                </li>
+                            </ul>
+                            <a href="#" class="btn btn-sm btn-dark hover-translate-y-n3 hover-shadow-lg mb-3">查看更多</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md">
+                    <div class="card card-pricing bg-dark text-center px-3 border-0 hover-scale-110">
+                        <div class="card-header py-5 border-0 delimiter-bottom">
+                            <div class="h1 text-white text-center mb-0">行业资讯</div>
+                            <!-- <span class="h6 text-white">Extended License</span> -->
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled text-white text-sm opacity-8 mb-4">
+                                <li class="py-2">
+                                    <a href="#" class="text-primary text-underline--dashed">库斯泰科技参与制定物联网协议标准，促进跨行业协作<i data-feather="arrow-right" class="ml-2"></i></a>
+                                </li>
+                                <li class="py-2">
+                                    <a href="#" class="text-primary text-underline--dashed">5G技术赋能工业4.0转型<i data-feather="arrow-right" class="ml-2"></i></a>
+                                </li>
+                                <li class="py-2">
+                                    <a href="#" class="text-primary text-underline--dashed">智能农业管理平台助力精准农业革命<i data-feather="arrow-right" class="ml-2"></i></a>
+                                </li>
+                                <li class="py-2">
+                                    <a href="#" class="text-primary text-underline--dashed">库斯泰科技AI解决方案助力打造智慧城市新标杆<i data-feather="arrow-right" class="ml-2"></i></a>
+                                </li>
+                            </ul>
+                            <a href="#" class="btn btn-sm btn-white hover-translate-y-n3 hover-shadow-lg mb-3">查看更多</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-5 text-center">
+                <p class="mb-2">
+                    帮助合作伙伴为客户快速搭建垂直物联网平台，高效实现场景化智能应用
+                </p>
+                <a href="contact.html" class="text-primary text-underline--dashed">联系我们<i data-feather="arrow-right" class="ml-2"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section class="slice slice-lg bg-section-dark pt-5 pt-lg-8" id="sec:TechServices">
+        <!-- SVG separator -->
+        <div class="shape-container shape-line shape-position-top shape-orientation-inverse">
+            <svg width="2560px" height="100px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" x="0px" y="0px" viewBox="0 0 2560 100" style="enable-background: new 0 0 2560 100" xml:space="preserve" class="">
+                <polygon points="2560 0 2560 100 0 100"></polygon>
+            </svg>
+        </div>
+        <!-- Container -->
+        <div class="container position-relative zindex-100">
+            <div class="col">
+                <div class="row justify-content-center">
+                    <div class="col-md-10 text-center">
+                        <div class="mt-4 mb-6">
+                            <h2 class="h1 text-white">技术服务</h2>
+                            <p class="text-white">
+                                我们走在创新的最前沿，致力于提供全面的智能解决方案，为现代世界的农业、通信和物联网应用提供动力与连接。我们的多样化产品组合包括先进的智能农业管理系统、领先的5G通信技术服务、广泛的物联网应用服务以及强大的人工智能开发平台，所有这些都经过精心设计，旨在满足各个行业的需求。
+                            </p>
+                            <!-- <h4 class="text-white mt-3">Create your own experience</h4> -->
+                            <!-- Play button -->
+                            <a href="#" class="btn btn-primary btn-icon mt-4">更多产品</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="slice pt-0">
+        <div class="container position-relative zindex-100">
+            <div class="row">
+                <div class="col-xl-4 col-sm-6 mt-n7">
+                    <div class="card">
+                        <div class="pt-4 pb-5">
+                            <img src="assets/img/svg/illustrations/illustration-10.jpg" class="img-fluid img-center" style="height: 150px" alt="Illustration" />
+                        </div>
+                        <div class="d-flex pb-5">
+                            <div class="pl-4 pr-4">
+                                <h5 class="lh-130">构建万物互联：物联网（IoT）应用服务</h5>
+                                <p class="text-muted mb-0">
+                                    全面的物联网解决方案：涵盖智能家居、智能城市、智慧交通等多个领域，促进不同设备间的无缝连接。
+                                </p>
+                                <p class="text-muted mb-0">
+                                    安全可靠的通信协议：支持多种标准协议，如MQTT、CoAP、HTTP/HTTPS等，保障数据传输的安全性和隐私保护。
+                                </p>
+                                <p class="text-muted mb-0">
+                                    行业专用IoT套件：针对特定行业的硬件和软件集成方案，如智慧工厂、智能物流等。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-sm-6 mt-sm-n7">
+                    <div class="card">
+                        <div class="pt-4 pb-5">
+                            <img src="assets/img/svg/illustrations/illustration-9.jpg" class="img-fluid img-center" style="height: 150px" alt="Illustration" />
+                        </div>
+                        <div class="d-flex pb-5">
+                            <div class="pl-4 pr-4">
+                                <h5 class="lh-130">引领未来：5G通信技术服务</h5>
+                                <p class="text-muted mb-0">
+                                    5G网络部署与优化：为企业提供定制化5G网络规划和建设服务，确保低延迟、高带宽的稳定连接。
+                                </p>
+                                <p class="text-muted mb-0">
+                                    智能终端设备：包括工业路由器、CPE和其他支持5G的物联网设备，适用于各种工业场景。
+                                </p>
+                                <p class="text-muted mb-0">
+                                    边缘计算节点：安装高性能边缘服务器，实现数据本地处理，加快响应速度。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-12 col-sm-6 mt-xl-n7">
+                    <div class="card">
+                        <div class="pt-4 pb-5">
+                            <img src="assets/img/svg/illustrations/illustration-8.jpg" class="img-fluid img-center" style="height: 150px" alt="Illustration" />
+                        </div>
+                        <div class="d-flex pb-5">
+                            <div class="pl-4 pr-4">
+                                <h5 class="lh-130">从田间到云端：智能农业管理</h5>
+                                <p class="text-muted mb-0">
+                                    精准农业套件：集成传感器、气象站和无人机等设备，实时监测土壤湿度、温度、光照强度等关键参数。
+                                </p>
+                                <p class="text-muted mb-0">
+                                    智能灌溉系统：基于AI算法的自动灌溉方案，通过分析作物需水量优化水资源利用。
+                                </p>
+                                <p class="text-muted mb-0">
+                                    病虫害预警系统：高清摄像头配合图像识别技术，提前发现并预警病虫害，减少农药使用。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-4 col-sm-6">
+                    <div class="card">
+                        <div class="pt-4 pb-5">
+                            <img src="assets/img/svg/illustrations/illustration-11.jpg" class="img-fluid img-center" style="height: 150px" alt="Illustration" />
+                        </div>
+                        <div class="d-flex pb-5">
+                            <div class="pl-4 pr-4">
+                                <h5 class="lh-130">
+                                    推动智能化转型：人工智能（AI）产品和服务
+                                </h5>
+                                <p class="text-muted mb-0">
+                                    AI开发平台：提供机器学习框架和支持工具，帮助企业快速构建和部署AI应用。
+                                </p>
+                                <p class="text-muted mb-0">
+                                    AI应用软件：涵盖图像识别、自然语言处理等多个领域的应用程序，助力企业实现业务流程自动化。
+                                </p>
+                                <p class="text-muted mb-0">
+                                    AI咨询服务：为客户提供战略规划和技术实施的专业建议，确保AI项目的成功落地。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-sm-6">
+                    <div class="card">
+                        <div class="pt-4 pb-5">
+                            <img src="assets/img/svg/illustrations/illustration-12.jpg" class="img-fluid img-center" style="height: 150px" alt="Illustration" />
+                        </div>
+                        <div class="d-flex pb-5">
+                            <div class="pl-4 pr-4">
+                                <h5 class="lh-130">计算机软硬件及辅助设备零售</h5>
+                                <p class="text-muted mb-0">
+                                    我们提供全面的计算机系统和辅助设备解决方案，旨在满足企业和个人用户在不同场景下的多样化需求。从高性能服务器到便携式笔记本电脑，再到各种外设产品，我们的每一件商品都经过严格筛选，确保其性能稳定可靠。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-md-12 col-sm-6">
+                    <div class="card">
+                        <div class="pt-4 pb-5">
+                            <img src="assets/img/svg/illustrations/illustration-13.jpg" class="img-fluid img-center" style="height: 150px" alt="Illustration" />
+                        </div>
+                        <div class="d-flex pb-5">
+                            <div class="pl-4 pr-4">
+                                <h5 class="lh-130">人工智能基础资源与技术平台</h5>
+                                <p class="text-muted mb-0">
+                                    我们的人工智能（AI）基础资源和技术平台为开发者和企业提供了一套完整的工具和服务，帮助他们快速构建和部署智能应用。无论是机器学习框架、深度学习库还是预训练模型，我们都提供了丰富而强大的支持。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="position-relative" id="footer-main">
+        <div class="footer pt-lg-7 footer-dark bg-dark">
+            <!-- SVG shape -->
+            <div class="shape-container shape-line shape-position-top shape-orientation-inverse">
+                <svg width="2560px" height="100px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" x="0px" y="0px" viewBox="0 0 2560 100" style="enable-background: new 0 0 2560 100" xml:space="preserve" class="fill-section-secondary">
+                    <polygon points="2560 0 2560 100 0 100"></polygon>
+                </svg>
+            </div>
+            <!-- Footer -->
+            <div class="container pt-4">
+                <div class="row">
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <!-- Theme's logo -->
+                        <a href="index.html">
+                            <!-- <img alt="Image placeholder" src="assets/img/brand/light.svg" id="footer-logo"> -->
+                            <img alt="Image placeholder" src="assets/img/brand/cp-logo.png" id="footer-logo" />
+                        </a>
+                        <!-- Webpixels' mission -->
+                        <p class="mt-4 text-sm opacity-8 pr-lg-4">
+                            江苏库斯泰科技有限公司是一家位于中国江苏省的高科技企业，专注于物联网（IoT）应用服务、5G通信技术服务以及人工智能大模型等前沿技术领域。公司致力于通过创新技术和优质服务，推动传统行业的智能化转型与升级，为客户提供从硬件到软件的一站式解决方案。
+                        </p>
+                        <!-- Social -->
+                        <!-- <ul class="nav mt-4">
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://github.com/kusitai" target="_blank">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://www.instagram.com/kusitai" target="_blank">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://www.facebook.com/kusitai" target="_blank">
+                                    <i class="fab fa-facebook"></i>
+                                </a>
+                            </li>
+                        </ul> -->
+                    </div>
+
+                    <div class="col-lg-2 col-6 col-sm-4 ml-lg-auto mb-5 mb-lg-0">
+                        <h6 class="heading mb-3">公司</h6>
+                        <ul class="list-unstyled">
+                            <li><a href="#sec:CompanyProfile">公司概览</a></li>
+                            <li><a href="#">工作机会</a></li>
+                            <li><a href="#sec:News">新闻中心</a></li>
+                            <li><a href="contact.html">联系我们</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-2 col-6 col-sm-4 mb-5 mb-lg-0">
+                        <h6 class="heading mb-3">产品&服务</h6>
+                        <ul class="list-unstyled">
+                            <li>
+                                <a href="#sec:TechServices" class="dropdown-item">物联网技术服务</a>
+                            </li>
+                            <li>
+                                <a href="#sec:TechServices" class="dropdown-item">物联网应用服务</a>
+                            </li>
+                            <li>
+                                <a href="#sec:TechServices" class="dropdown-item">人工智能应用软件开发</a>
+                            </li>
+                            <li>
+                                <a href="#sec:TechServices" class="dropdown-item">5G通信技术服务</a>
+                            </li>
+                            <li>
+                                <a href="#sec:TechServices" class="dropdown-item">计算机系统服务</a>
+                            </li>
+                            <li>
+                                <a href="#sec:TechServices" class="dropdown-item">计算器设备销售</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-2 col-6 col-sm-4 mb-5 mb-lg-0">
+                        <h6 class="heading mb-3">语言</h6>
+                        <ul class="list-unstyled">
+                            <li><a href="#">中文</a></li>
+                            <li><a href="#">English</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <!-- 分割线 -->
+                <hr class="divider divider-fade divider-dark my-4" />
+                <div class="row align-items-center justify-content-md-between pb-4">
+                    <div class="col-md-6">
+                        <div class="copyright text-sm font-weight-bold text-center text-md-left">
+                            &copy; 2021
+                            <a href="#" class="font-weight-bold" target="_blank">江苏库斯泰科技有限公司</a>. 版权所有
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="nav justify-content-center justify-content-md-end mt-3 mt-md-0">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#"> Terms </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#"> Privacy </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#"> Cookies </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
