@@ -1,1 +1,1 @@
-请访问 [kustai][kustai.com]
+请访问 [kustai](kustai.com)
